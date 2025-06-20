@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -6,25 +8,248 @@
 </head>
 <body>
     <h1>個人的ハンズオン資料集</h1>
+    
     <nav>
         <h2>ハンズオン資料</h2>
-        <ul>
-            <li><a href="https://midnight480.github.io/handson-manual/00-Install-AWS-CLI-to-RPI/web/" target="_blank" rel="noopener noreferrer">00-Install-AWS-CLI-to-RPI</a></li>
-            <li><a href="https://midnight480.github.io/handson-manual/01-use-manual-oVice/web/" target="_blank" rel="noopener noreferrer">01-use-manual-oVice</a></li>
-            <li><a href="https://midnight480.github.io/handson-manual/02-use-manual-gather/web/" target="_blank" rel="noopener noreferrer">02-use-manual-gather</a></li>
-            <li><a href="https://midnight480.github.io/handson-manual/03-AWS-CLI-CreateAMI/web/" target="_blank" rel="noopener noreferrer">03-AWS-CLI-CreateAMI</a></li>
-            <li><a href="https://midnight480.github.io/handson-manual/04-use-manual-gather-other/web/" target="_blank" rel="noopener noreferrer">04-use-manual-gather-other</a></li>
-            <li><a href="https://midnight480.github.io/handson-manual/05-Cloudflare-ZeroTrust-Client/web/" target="_blank" rel="noopener noreferrer">05-Cloudflare-ZeroTrust-Client</a></li>
-            <li><a href="https://midnight480.github.io/handson-manual/06-CloudWatch-Logs-Metrics/web/" target="_blank" rel="noopener noreferrer">06-CloudWatch-Logs-Metrics</a></li>
-            <li><a href="https://midnight480.github.io/handson-manual/07-SITCD-Initial-Setup/web/" target="_blank" rel="noopener noreferrer">07-SITCD-Initial-Setup</a></li> 
-            <li><a href="https://midnight480.github.io/handson-manual/08-SITCD-Resource-Setup/web/" target="_blank" rel="noopener noreferrer">08-SITCD-Resource-Setup</a></li>
-        </ul>
+        <div class="menu-container">
+            <!-- AWS関連 -->
+            <div class="menu-item">
+                <button class="menu-button" onclick="toggleSubmenu('aws-section')">
+                    AWS関連
+                    <span class="arrow">▼</span>
+                </button>
+                <div class="submenu" id="aws-section">
+                    <div class="submenu-item">
+                        <button class="submenu-button" onclick="toggleSubSubmenu('aws-cli-rpi')">
+                            00-Install-AWS-CLI-to-RPI
+                            <span class="arrow">▼</span>
+                        </button>
+                        <div class="sub-submenu" id="aws-cli-rpi">
+                            <p>Raspberry PiにAWS CLIをインストールする手順について説明します。</p>
+                            <a href="https://midnight480.github.io/handson-manual/00-Install-AWS-CLI-to-RPI/web/" target="_blank" rel="noopener noreferrer" class="detail-link">詳細資料を見る</a>
+                        </div>
+                    </div>
+                    <div class="submenu-item">
+                        <button class="submenu-button" onclick="toggleSubSubmenu('aws-cli-ami')">
+                            03-AWS-CLI-CreateAMI
+                            <span class="arrow">▼</span>
+                        </button>
+                        <div class="sub-submenu" id="aws-cli-ami">
+                            <p>AWS CLIを使用したAMI作成について説明します。</p>
+                            <a href="https://midnight480.github.io/handson-manual/03-AWS-CLI-CreateAMI/web/" target="_blank" rel="noopener noreferrer" class="detail-link">詳細資料を見る</a>
+                        </div>
+                    </div>
+                    <div class="submenu-item">
+                        <button class="submenu-button" onclick="toggleSubSubmenu('cloudwatch')">
+                            06-CloudWatch-Logs-Metrics
+                            <span class="arrow">▼</span>
+                        </button>
+                        <div class="sub-submenu" id="cloudwatch">
+                            <p>CloudWatchログとメトリクスの設定について説明します。</p>
+                            <a href="https://midnight480.github.io/handson-manual/06-CloudWatch-Logs-Metrics/web/" target="_blank" rel="noopener noreferrer" class="detail-link">詳細資料を見る</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ツール関連 -->
+            <div class="menu-item">
+                <button class="menu-button" onclick="toggleSubmenu('tools-section')">
+                    ツール関連
+                    <span class="arrow">▼</span>
+                </button>
+                <div class="submenu" id="tools-section">
+                    <div class="submenu-item">
+                        <button class="submenu-button" onclick="toggleSubSubmenu('ovice')">
+                            01-use-manual-oVice
+                            <span class="arrow">▼</span>
+                        </button>
+                        <div class="sub-submenu" id="ovice">
+                            <p>oViceの使用方法について説明します。</p>
+                            <a href="https://midnight480.github.io/handson-manual/01-use-manual-oVice/web/" target="_blank" rel="noopener noreferrer" class="detail-link">詳細資料を見る</a>
+                        </div>
+                    </div>
+                    <div class="submenu-item">
+                        <button class="submenu-button" onclick="toggleSubSubmenu('gather')">
+                            02-use-manual-gather
+                            <span class="arrow">▼</span>
+                        </button>
+                        <div class="sub-submenu" id="gather">
+                            <p>Gatherの使用方法について説明します。</p>
+                            <a href="https://midnight480.github.io/handson-manual/02-use-manual-gather/web/" target="_blank" rel="noopener noreferrer" class="detail-link">詳細資料を見る</a>
+                        </div>
+                    </div>
+                    <div class="submenu-item">
+                        <button class="submenu-button" onclick="toggleSubSubmenu('gather-other')">
+                            04-use-manual-gather-other
+                            <span class="arrow">▼</span>
+                        </button>
+                        <div class="sub-submenu" id="gather-other">
+                            <p>Gatherのその他の機能について説明します。</p>
+                            <a href="https://midnight480.github.io/handson-manual/04-use-manual-gather-other/web/" target="_blank" rel="noopener noreferrer" class="detail-link">詳細資料を見る</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- セキュリティ関連 -->
+            <div class="menu-item">
+                <button class="menu-button" onclick="toggleSubmenu('security-section')">
+                    セキュリティ関連
+                    <span class="arrow">▼</span>
+                </button>
+                <div class="submenu" id="security-section">
+                    <div class="submenu-item">
+                        <button class="submenu-button" onclick="toggleSubSubmenu('cloudflare-zerotrust')">
+                            05-Cloudflare-ZeroTrust-Client
+                            <span class="arrow">▼</span>
+                        </button>
+                        <div class="sub-submenu" id="cloudflare-zerotrust">
+                            <p>Cloudflare Zero Trustクライアントの設定について説明します。</p>
+                            <a href="https://midnight480.github.io/handson-manual/05-Cloudflare-ZeroTrust-Client/web/" target="_blank" rel="noopener noreferrer" class="detail-link">詳細資料を見る</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SITCD関連 -->
+            <div class="menu-item">
+                <button class="menu-button" onclick="toggleSubmenu('sitcd-section')">
+                    SITCD関連
+                    <span class="arrow">▼</span>
+                </button>
+                <div class="submenu" id="sitcd-section">
+                    <div class="submenu-item">
+                        <button class="submenu-button" onclick="toggleSubSubmenu('sitcd-initial')">
+                            07-SITCD-Initial-Setup
+                            <span class="arrow">▼</span>
+                        </button>
+                        <div class="sub-submenu" id="sitcd-initial">
+                            <p>SITCD初期設定について説明します。</p>
+                            <a href="https://midnight480.github.io/handson-manual/07-SITCD-Initial-Setup/web/" target="_blank" rel="noopener noreferrer" class="detail-link">詳細資料を見る</a>
+                        </div>
+                    </div>
+                    <div class="submenu-item">
+                        <button class="submenu-button" onclick="toggleSubSubmenu('sitcd-resource')">
+                            08-SITCD-Resource-Setup
+                            <span class="arrow">▼</span>
+                        </button>
+                        <div class="sub-submenu" id="sitcd-resource">
+                            <p>SITCDリソース設定について説明します。</p>
+                            <a href="https://midnight480.github.io/handson-manual/08-SITCD-Resource-Setup/web/" target="_blank" rel="noopener noreferrer" class="detail-link">詳細資料を見る</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <h2>その他のリソース</h2>
-        <ul>
-            <li><a href="https://speakerdeck.com/midnight480" target="_blank" rel="noopener noreferrer">登壇資料一覧</a></li>
-            <li><a href="https://www.docswell.com/user/midnight480" target="_blank" rel="noopener noreferrer">登壇資料一覧（予備）</a></li>
-            <li><a href="https://my.prairie.cards/u/midnight480" target="_blank" rel="noopener noreferrer">SNSリンク集（プレーリーカード）</a></li>
-        </ul>
+        <div class="resources-grid">
+            <!-- SNSセクション -->
+            <div class="resource-section">
+                <h3>SNS</h3>
+                <div class="resource-links">
+                    <a href="https://twitter.com/midnight480" target="_blank" rel="noopener noreferrer" class="resource-link">
+                        <svg class="resource-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                        X (Twitter)
+                    </a>
+                    <a href="https://www.linkedin.com/in/midnight480/" target="_blank" rel="noopener noreferrer" class="resource-link">
+                        <svg class="resource-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                        LinkedIn
+                    </a>
+                </div>
+            </div>
+
+            <!-- リポジトリセクション -->
+            <div class="resource-section">
+                <h3>リポジトリ</h3>
+                <div class="resource-links">
+                    <a href="https://github.com/midnight480" target="_blank" rel="noopener noreferrer" class="resource-link">
+                        <svg class="resource-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                        </svg>
+                        GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- スライドセクション -->
+            <div class="resource-section">
+                <h3>スライド</h3>
+                <div class="resource-links">
+                    <a href="https://speakerdeck.com/midnight480" target="_blank" rel="noopener noreferrer" class="resource-link">
+                        Speaker Deck
+                    </a>
+                    <a href="https://www.docswell.com/user/midnight480" target="_blank" rel="noopener noreferrer" class="resource-link">
+                        DocsWell
+                    </a>
+                </div>
+            </div>
+
+            <!-- ブログセクション -->
+            <div class="resource-section">
+                <h3>ブログ</h3>
+                <div class="resource-links">
+                    <a href="https://midnight480.com/" target="_blank" rel="noopener noreferrer" class="resource-link">
+                        個人ブログ
+                    </a>
+                    <a href="https://qiita.com/midnight480" target="_blank" rel="noopener noreferrer" class="resource-link">
+                        Qiita
+                    </a>
+                    <a href="https://zenn.dev/mid480" target="_blank" rel="noopener noreferrer" class="resource-link">
+                        Zenn
+                    </a>
+                </div>
+            </div>
+
+            <!-- その他のリソース -->
+            <div class="resource-section">
+                <h3>その他</h3>
+                <div class="resource-links">
+                    <a href="https://my.prairie.cards/u/midnight480" target="_blank" rel="noopener noreferrer" class="resource-link">
+                        SNSリンク集（プレーリーカード）
+                    </a>
+                </div>
+            </div>
+        </div>
     </nav>
+
+    <script>
+        function toggleSubmenu(id) {
+            const submenu = document.getElementById(id);
+            const button = submenu.previousElementSibling;
+            const arrow = button.querySelector('.arrow');
+            
+            if (submenu.style.display === 'block') {
+                submenu.style.display = 'none';
+                arrow.textContent = '▼';
+                button.classList.remove('active');
+            } else {
+                submenu.style.display = 'block';
+                arrow.textContent = '▲';
+                button.classList.add('active');
+            }
+        }
+
+        function toggleSubSubmenu(id) {
+            const subSubmenu = document.getElementById(id);
+            const button = subSubmenu.previousElementSibling;
+            const arrow = button.querySelector('.arrow');
+            
+            if (subSubmenu.style.display === 'block') {
+                subSubmenu.style.display = 'none';
+                arrow.textContent = '▼';
+                button.classList.remove('active');
+            } else {
+                subSubmenu.style.display = 'block';
+                arrow.textContent = '▲';
+                button.classList.add('active');
+            }
+        }
+    </script>
 </body>
+</html>
